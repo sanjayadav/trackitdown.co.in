@@ -1,0 +1,9 @@
+@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import'../node_modules/ngx-toastr/toastr.css';
+@import'../src/assets/vendor/bootstrap/css/bootstrap.css';
+@import'../src/assets/vendor/font-awesome/css/font-awesome.css';
+@import'../src/assets/css/fontastic.css';
+@import'../src/assets/css/grasp_mobile_progress_circle-1.0.0.min.css';
+@import'../src/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
+@import'../src/assets/css/style.red.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');

@@ -1,0 +1,122 @@
+<nav class="side-navbar">
+    <div class="side-navbar-wrapper">
+        <!-- Sidebar Header    -->
+        <div class="sidenav-header d-flex align-items-center justify-content-center">
+            <!-- User Info-->
+            <div class="sidenav-header-inner text-center">
+                <img src="assets/img/user.svg" alt="person" class="img-fluid rounded-circle">
+                <br><br>
+                <h5>{{userInfo.firstName}} {{userInfo.lastName}}</h5>
+            </div>
+            <!-- Small Brand information, appears on minimized sidebar-->
+            <div class="sidenav-header-logo"><a [routerLink]="['/dashboard']" class="brand-small text-center"> <strong>T</strong><strong class="text-primary">ID</strong></a></div>
+        </div>
+        <!-- Sidebar Navigation Menus-->
+        <div class="main-menu">
+            <ul id="side-main-menu" class="side-menu list-unstyled">                  
+            <li><a [routerLink]="['/dashboard']"> <i class="icon-pencil-case"></i>Dashboard</a></li>
+            <li><a href="#mydropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-search"></i>Search</a>
+                <ul id="mydropdownDropdown" class="collapse list-unstyled ">
+                    <mat-form-field>
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Type here to search..." style="color:white;">
+                    </mat-form-field>
+                </ul>
+            </li>
+            <li><a [routerLink]="['/create']"><i class="fa fa-plus"></i>Create new Issue </a></li>
+            <li><a (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="page">
+    <!-- navbar-->
+    <header class="header">
+    <nav class="navbar">
+        <div class="container-fluid">
+        <div class="navbar-holder d-flex align-items-center justify-content-between">
+            <div class="navbar-header">
+                <a (click)="toggleCollapsed()" class="menu-btn"><i class="icon-bars"> </i></a>
+                <a [routerLink]="['/dashboard']"  class="navbar-brand">
+                    <div class="brand-text d-none d-md-inline-block"><span>Trackit </span><strong class="text-primary">DOWN</strong></div>
+                </a>
+            </div>
+            <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+        
+            <!-- Log out-->
+            <li class="nav-item"><a (click)="logout()" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    </header>
+    <!-- Table Section -->
+    <div class="col-sm-12">
+        <h4>All Issues</h4>
+    </div>
+    <div class="row">
+        <div class="col-sm-6" style="padding-left: 30px;">
+                <i class="icon-search"></i> Search 
+                <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Type here to search...">
+                </mat-form-field>
+        </div>
+        <div class="col-sm-6 text-center" style="margin-bottom:15px;">
+            <a class="btn btn-primary" [routerLink]="['/create']"> Create new Issue <i class="fa fa-plus"></i></a> 
+        </div>
+    </div>
+          
+    <div class="table-container table-responsive mat-elevation-z8">    
+        <mat-table [dataSource]="dataSource" matSort >
+            <!-- Title Column -->
+            <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="title-cell"> Title </mat-header-cell>
+            <mat-cell *matCellDef="let row" class="title-cell"> {{ (row.title.length>20)? (row.title | slice:0:20)+'..':(row.title) }} </mat-cell>
+            </ng-container>
+        
+            <!-- Description Column -->
+            <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="description-cell"> Description </mat-header-cell>
+            <!-- <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell> -->
+            
+            <mat-cell *matCellDef="let row" class="description-cell"> {{ (row.description.length>20)? (row.description | slice:0:20)+'..':(row.description) }} </mat-cell>
+            </ng-container>
+        
+            <!-- Status Column -->
+            <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="status-cell"> Status </mat-header-cell>
+            <mat-cell *matCellDef="let row" [style.color]="row.color" style="font-weight:500;" class="status-cell"> {{row.status}} </mat-cell>
+            </ng-container>
+        
+            <!-- Reporter Column -->
+            <ng-container matColumnDef="reporter">
+            <mat-header-cell *matHeaderCellDef mat-sort-header  class="reporter-cell"> Reported By </mat-header-cell>
+            <mat-cell *matCellDef="let row" class="reporter-cell"> {{row.submitterFirstName}} {{row.submitterLastName}} </mat-cell>
+            </ng-container>
+
+            <!-- Date Column -->
+            <ng-container matColumnDef="date">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header class="date-cell"> Date </mat-header-cell>
+                    <!-- <mat-cell *matCellDef="let row" > {{row.created}} </mat-cell> -->
+                    <mat-cell *matCellDef="let row" class="date-cell" ><small class="text-muted">{{row.created | slice:-13}}</small></mat-cell>
+            </ng-container>  
+                  
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/issue',row.issueId]">
+            </mat-row>
+        </mat-table>
+        
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+        
+    <footer class="main-footer">
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-sm-12 text-center">
+            <p>TrackitDown &copy; | 2019</p>
+        </div>
+        </div>
+    </div>
+    </footer>
+</div>
+
+

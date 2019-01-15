@@ -1,0 +1,80 @@
+h4{
+    font-size: 25px;
+    font-weight: 400;
+    padding: 20px 0 7px 0;
+  }
+h5{
+    font-weight:500;
+}
+a:not([href]):not([tabindex]) {
+    color:white;
+}
+.btn{
+    color:white;
+    border-radius: 50px;
+    padding-left:30px;
+    padding-right:30px;
+}
+.user_name{
+    font-size:14px;
+    font-weight: bold;
+    margin-left:15px;
+}
+.media{
+    border-bottom: 1px dotted #ccc;
+    margin-bottom:10px;
+}
+.img-size{
+    width: 50px;
+    height: 50px;
+}
+
+.media-body p{
+    margin-left:15px;
+}
+
+.commentNav nav > .nav.nav-tabs{
+
+    border: none;
+      color:#fff;
+      background:#272e38;
+      border-radius:0;
+  
+  }
+.commentNav nav > div a.nav-item.nav-link,
+  nav > div a.nav-item.nav-link.active
+  {
+    border: none;
+      padding: 10px 25px;
+      color:#fff;
+      background:#272e38;
+      border-radius:0;
+  }
+  
+.commentNav  nav > div a.nav-item.nav-link.active:after
+   {
+    content: "";
+    position: relative;
+    bottom: -60px;
+    left: -10%;
+    border: 15px solid transparent;
+    border-top-color: #e74c3c ;
+  }
+.commentNav  .tab-content{
+    background: #fdfdfd;
+      line-height: 25px;
+      border: 1px solid #ddd;
+      border-top:5px solid #e74c3c;
+      border-bottom:5px solid #e74c3c;
+      padding:10px 25px;
+  }
+  
+.commentNav  nav > div a.nav-item.nav-link:hover,
+  nav > div a.nav-item.nav-link:focus
+  {
+    border: none;
+      background: #e74c3c;
+      color:#fff;
+      border-radius:0;
+      transition:background 0.20s linear;
+  }

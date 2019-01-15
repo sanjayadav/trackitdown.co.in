@@ -1,0 +1,131 @@
+<!-- navbar-->
+<nav class="side-navbar">
+  <div class="side-navbar-wrapper">
+    <!-- Sidebar Header    -->
+    <div class="sidenav-header d-flex align-items-center justify-content-center">
+        <!-- Small Brand information, appears on minimized sidebar-->
+        <div class="sidenav-header-logo"><a [routerLink]="['/home']" class="brand-small text-center"> <strong>T</strong><strong class="text-primary">ID</strong></a></div>
+    </div>
+    <!-- Sidebar Navigation Menus-->
+    <div class="main-menu">
+        <ul id="side-main-menu" class="side-menu list-unstyled">                  
+        <li><a (click)="goToSignin()"> <i class="fa fa-sign-in"></i>Login</a></li>
+        <li><a (click)="goToSignup()"> <i class="fa fa-user-plus"></i>Signup</a></li>
+        </ul>
+    </div>
+  </div>
+</nav>
+<div class="page">
+  <!-- navbar-->
+  <header class="header">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-holder d-flex align-items-center justify-content-between">
+          <div class="navbar-header">
+              <a (click)="toggleCollapsed()" class="menu-btn"><i class="icon-bars"> </i></a> 
+            <a href="#" class="navbar-brand">
+              <div class="brand-text d-none d-md-inline-block"><span>Trackit </span><strong class="text-primary">DOWN</strong></div>
+            </a>
+          </div>
+          <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+          <!-- Log In-->
+            <!-- <li class="nav-item"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline-block">Login</span><i class="fa fa-sign-out"></i></a></li> -->
+             <li><a class="btn btn-primary navbar-btn ml-0 ml-lg-3" (click)="goToSignin()">Login  <i class="fa fa-sign-in"></i></a></li>
+             <li><a class="btn btn-primary navbar-btn ml-0 ml-lg-3" (click)="goToSignup()">Signup  <i class="fa fa-user-plus"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section class="dashboard-header section-padding hero">
+    <div class="container-fluid">
+      <div class="row d-flex align-items-md-stretch">
+        <div class="col-md-6">
+          <br><br>
+          <h1>Track issues of your project with your colleagues.</h1>
+          <br>
+          <h3 style="font-weight: 300">Register with us and find your colleagues and others and maintain issue log of your projects.</h3>
+          <br>
+          <a class="btn btn-primary" (click)="goToSignin()">Register Now  <i class="fa fa-arrow-right"></i></a>
+        </div>
+        <div class="col-md-6">
+            <img src="assets/img/illustration-hero.svg" alt="..." class=" img-fluid d-none d-lg-block">
+        </div>      
+      </div>
+    </div>
+  </section>
+   <!-- Intro Section-->
+   <section class="intro">
+      <div class="container">
+        <div class="text-center">
+          <h2>Track projects from start to finish </h2>
+          <p class="lead text-muted mt-2">TrackitDown helps you track and log issues of you project with your team.</p><a [routerLink]="['/home']" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="row">
+          <div class="col-lg-7 mx-auto mt-5"><img src="assets/img/illustration-1.svg" alt="..." class="intro-image img-fluid"></div>
+        </div>
+      </div>
+    </section>
+  <!-- Integrations Section-->
+  <section class="features">
+      <div class="container">
+        <div class="text-center">
+          <h2>Features</h2>
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <p class="lead text-muted mt-2">Here are some great feautres our platform provides.</p>
+            </div>
+          </div>
+        </div>
+        <div class="integrations mt-5">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="box text-center">
+                <div class="icon d-flex align-items-end"><img src="assets/img/monitor.svg" alt="..." class="img-fluid"></div>
+                <h3>Personal Dashboard</h3>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box text-center">
+                <div class="icon d-flex align-items-end"><img src="assets/img/target.svg" alt="..." class="img-fluid"></div>
+                <h3>User Management</h3>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box text-center">
+                <div class="icon d-flex align-items-end"><img src="assets/img/chat.svg" alt="..." class="img-fluid"></div>
+                <h3>Comments</h3>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box text-center">
+                <div class="icon d-flex align-items-end"><img src="assets/img/idea.svg" alt="..." class="img-fluid"></div>
+                <h3 >Share Ideas</h3>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box text-center">
+                <div class="icon d-flex align-items-end"><img src="assets/img/coffee-cup.svg" alt="..." class="img-fluid"></div>
+                <h3>Watch Projects</h3>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box text-center">
+                <div class="icon d-flex align-items-end"><img src="assets/img/pen.svg" alt="..." class="img-fluid"></div>
+                <h3>Log Issues</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <footer class="main-footer">
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-sm-12 text-center">
+            <p>TrackitDown &copy; | 2019</p>
+        </div>
+        </div>
+    </div>
+  </footer>
+</div>

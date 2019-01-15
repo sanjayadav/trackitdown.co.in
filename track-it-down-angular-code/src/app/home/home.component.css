@@ -1,0 +1,60 @@
+h1,.h1{
+    font-size: 48px;
+    font-weight: 300;
+}
+h2,.h2{
+    font-size:28px;
+    font-weight: 300;
+}
+h3,.h3{
+    font-size:22px;
+    font-weight: 300;
+}
+a:not([href]):not([tabindex]) {
+    color:white;
+}
+.btn{
+    border-radius: 50px;
+}
+.hero {
+    padding: 140px 30px;
+    background: url(../../assets/img/hero-bg.svg) no-repeat;
+    background-size: cover;
+    background-position: bottom left;
+}
+
+/* =====================================================
+*     INTRO SECTION
+* =====================================================
+*/
+.intro{
+    margin-bottom: 60px;
+}
+/* =====================================================
+*     FEATURES SECTION
+* =====================================================
+*/
+.features{
+    background-color: #f2f3f9;
+    padding-bottom:5px;
+}
+.features h2{
+    padding-top:30px;
+}
+.box {
+  padding: 3rem 2rem;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.box:hover {
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.box .icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}

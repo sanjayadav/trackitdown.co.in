@@ -1,0 +1,58 @@
+h4{
+  font-size: 25px;
+  font-weight: 400;
+  padding: 20px 0 7px 0;
+}
+.btn{
+  border-radius:50px;
+}
+a:not([href]):not([tabindex]) {
+  color:white;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.table-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 600px;
+}
+.mat-row:hover:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.mat-row:nth-of-type(odd) {
+    background-color: rgba(180, 176, 176, 0.075);
+}
+
+.title-cell{
+  padding-left:10px;
+  margin-right:10px;
+}
+.description-cell{
+  padding-right:20px;
+  margin-right:10px;
+}
+.status-cell{
+  padding-right:25px;
+  margin-right:15px;
+}
+.reporter-cell{
+  padding-right:10px;
+  margin-right:5px;
+}
+.date-cell{
+  padding-right:5px;
+}

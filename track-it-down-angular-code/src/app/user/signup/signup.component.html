@@ -1,0 +1,76 @@
+<!-- navbar-->
+<nav class="side-navbar">
+  <div class="side-navbar-wrapper">
+    <!-- Sidebar Header    -->
+    <div class="sidenav-header d-flex align-items-center justify-content-center">
+        <!-- Small Brand information, appears on minimized sidebar-->
+        <div class="sidenav-header-logo"><a (click)="goToHome()" class="brand-small text-center"> <strong>T</strong><strong class="text-primary">ID</strong></a></div>
+    </div>
+    <!-- Sidebar Navigation Menus-->
+    <div class="main-menu">
+        <ul id="side-main-menu" class="side-menu list-unstyled">                  
+         <li><a (click)="goToHome()"> <i class="fa fa-home"></i>Home</a></li>
+         <li><a (click)="goToSignIn()"> <i class="fa fa-sign-in"></i>Login</a></li>
+        </ul>
+    </div>
+  </div>
+</nav>
+<div class="page">
+<!-- navbar-->
+<header class="header">
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-holder d-flex align-items-center justify-content-between">
+        <div class="navbar-header">
+          <a (click)="toggleCollapsed()" class="menu-btn"><i class="icon-bars"> </i></a>
+          <a (click)="goToHome()" class="navbar-brand">
+            <div class="brand-text d-none d-md-inline-block"><span style="color:white;">Trackit </span><strong class="text-primary">DOWN</strong>
+            </div>
+          </a>
+        </div>
+        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+            <li><a class="btn btn-primary navbar-btn ml-0 ml-lg-3" (click)="goToHome()" >Home  <i class="fa fa-home"></i></a></li>
+            <li><a class="btn btn-primary navbar-btn ml-0 ml-lg-3" (click)="goToSignIn()">Login  <i class="fa fa-sign-in"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign up</h5>
+            <div class="form-signin">
+              <div class="form-group">
+                <input type="text" id="inputFirstName" class="form-control" [(ngModel)]="firstName" placeholder="Enter FirstName" required autofocus>
+              </div>
+              <div class="form-group">
+                <input type="text" id="inputLastName" class="form-control" [(ngModel)]="lastName" placeholder="Enter LastName" required>
+              </div>
+              <div class="form-group">
+                <input type="email" id="inputEmail" class="form-control" [(ngModel)]="email" placeholder="Enter Email" required>
+              </div>
+              <div class="form-group">
+                <input type="number" id="inputMobile" class="form-control" [(ngModel)]="mobile" placeholder="Enter Mobile Number" required>
+              </div>
+              <div class="form-group">
+                <input type="password" id="inputPassword" class="form-control" [(ngModel)]="password" placeholder="Enter Password" required>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="button" (click)="signupFunction()">Register</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<footer class="main-footer">
+  <div class="container-fluid">
+      <div class="row">
+      <div class="col-sm-12 text-center">
+          <p>TrackitDown &copy; | 2019</p>
+      </div>
+      </div>
+  </div>
+</footer>

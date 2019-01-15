@@ -1,0 +1,136 @@
+<nav class="side-navbar">
+  <div class="side-navbar-wrapper">
+  <!-- Sidebar Header    -->
+  <div class="sidenav-header d-flex align-items-center justify-content-center">
+      <!-- User Info-->
+      <div class="sidenav-header-inner text-center">
+          <img src="assets/img/user.svg" alt="person" class="img-fluid rounded-circle">
+          <br><br>
+          <h5>{{userInfo.firstName}} {{userInfo.lastName}}</h5>
+      </div>
+      <!-- Small Brand information, appears on minimized sidebar-->
+      <div class="sidenav-header-logo"><a [routerLink]="['/dashboard']" class="brand-small text-center"> <strong>T</strong><strong class="text-primary">ID</strong></a></div>
+  </div>
+  <!-- Sidebar Navigation Menus-->
+  <div class="main-menu">
+      <ul id="side-main-menu" class="side-menu list-unstyled">                  
+            <li><a [routerLink]="['/dashboard']"> <i class="icon-pencil-case"></i>Dashboard</a></li>
+            <li> <a (click)="viewNotifications();"> <i class="fa fa-bell"></i>Notifications</a></li>
+      </ul>
+  </div>
+  </div>
+</nav>
+<div class="page">
+  <!-- navbar-->
+  <header class="header">
+  <nav class="navbar">
+      <div class="container-fluid">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+                <div class="navbar-header">
+                    <a (click)="toggleCollapsed()" class="menu-btn"><i class="icon-bars"> </i></a>
+                    <a [routerLink]="['/dashboard']" class="navbar-brand">
+                    <div class="brand-text d-none d-md-inline-block"><span>Trackit </span><strong class="text-primary">DOWN</strong></div></a>
+                </div>
+                <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                    <!-- Notifications -->
+                    <li class="nav-item"><a (click)="viewNotifications()" class="nav-link"> <span class="d-none d-sm-inline-block"></span><i class="fa fa-bell"></i></a></li>
+                    <!-- Log out-->
+                    <li class="nav-item"><a (click)="logout()" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                </ul>
+            </div>
+        </div>
+  </nav>
+  </header>
+   <div class="container">
+        <div class="row" *ngIf="currentIssue">
+            <div class="col-md-12">
+                <h4 class="text-primary">{{currentIssue.title}}</h4>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <p>Reported by - {{currentIssue.submitterFirstName}} {{currentIssue.submitterLastName}}<br><small class="text-muted">at {{currentIssue.created}}</small></p>
+            </div>
+            <div class="col-xs-12 col-md-4" >
+                <p>Last Editted by - {{currentIssue.editorFirstName}} {{currentIssue.editorLastName}}<br><small class="text-muted">at {{currentIssue.lastModified}}</small></p>
+            </div>
+            <hr>
+            <div class="col-md-12">
+                <p>Description: {{currentIssue.description}}</p>
+                <p><b>Status:</b> <b [style.color]="currentIssue.color"> {{currentIssue.status}}</b></p>
+            </div>
+            </div>
+   
+            <div class="row" >
+                <div class="col-xs-12 col-md-4" style="padding-top:20px;">
+                    <a class="btn btn-primary" (click)="addYourself()">Add Yourself as a Watcher <i class="fa fa-plus"></i></a> 
+                </div>
+                <div class="col-xs-12 col-md-4" style="padding-top:20px;" *ngIf="currentIssue">
+                    <a class="btn btn-primary" [routerLink]="['/watchers',currentIssue.issueId]">Add Others as a Watcher <i class="fa fa-plus"></i></a>  
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row" *ngIf="currentIssue" style="text-align:center;">
+            <div class="col-xs" style="margin-right:5px; margin-left:15px;">
+                <a class="btn btn-success" (click)="goBackToPreviousPage()">Go Back </a>  
+            </div>
+            <div class="col-xs" style="margin-right: 5px;">
+                <a class="btn btn-warning"  [routerLink]="['/edit',currentIssue.issueId]">Edit </a>
+             </div>
+            <div class="col-xs">
+                <a class="btn btn-danger" (click)="deleteThisIssue()">Delete </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+       <div class="row">
+            <div class="col-md-8">               
+                <nav>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-comments" role="tab" aria-controls="nav-home" aria-selected="true" (click)="viewComments()">Comments</a>
+                    <a class="nav-item nav-link" id="nav-post-tab" data-toggle="tab" href="#nav-post" role="tab" aria-controls="nav-profile" aria-selected="false">Post a Comment</a>
+                    </div>
+                </nav>
+                <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-comments" role="tabpanel" aria-labelledby="nav-comments-tab">
+                        <div *ngIf="currentIssueComments" >
+                            <div class="media" *ngFor= "let info of currentIssueComments" >
+                                <img src="assets/img/user.svg" alt="person" class="img-fluid img-size rounded-circle">
+                                <div class="media-body">                                
+                                    <h5 class="user_name">{{info.commenterFirstName}} {{info.commenterLastName}}</h5>
+                                    <p>{{info.comment}}</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-post" role="tabpanel" aria-labelledby="nav-post-tab">
+                        <form #postCommentForm="ngForm" (ngSubmit)="postComment()">
+                            <div class="form-group">
+                                <input type="text" name="userComment" [(ngModel)]="userComment" #comment="ngModel" class="form-control" placeholder="Type Here..."
+                                required>
+                            </div>
+                            <div [hidden]="comment.valid || comment.pristine" class="alert alert-danger">
+                                Cannot post empty comment.
+                            </div>          
+                            <button type="submit" class="btn btn-primary" [disabled]="!postCommentForm.form.valid" >Post Comment</button>
+                        </form>
+                    </div>
+                </div> 
+                      
+            </div>                   
+        </div>
+    </div>
+         
+  <footer class="main-footer">
+  <div class="container-fluid">
+      <div class="row">
+      <div class="col-sm-12 text-center">
+          <p>TrackitDown &copy; | 2019</p>
+      </div>
+      </div>
+  </div>
+  </footer>
+</div>
+
+
