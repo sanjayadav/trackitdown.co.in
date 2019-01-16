@@ -21,7 +21,7 @@ export class AppService {
   public signupFunction(data):Observable<any>{
     const params = new HttpParams()
     .set('firstName' , data.firstName)
-    .set('lastName' , data.lasstName)
+    .set('lastName' , data.lastName)
     .set('mobile' , data.mobile)
     .set('email' , data.email)
     .set('password' , data.password)
