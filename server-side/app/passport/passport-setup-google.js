@@ -13,7 +13,7 @@ const appConfig =require('../../config/appConfig');
 const UserModel = require('../models/User');
 
 
-let baseUrl = `${appConfig.apiVersion}/users`;
+let baseUrl = `http://api.trackitdown.co.in/api/v1/users`;
 
 passport.serializeUser((user,done)=>{
     done(null,user.id)
