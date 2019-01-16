@@ -18,23 +18,22 @@ module.exports.setRouter = (app) => {
 
     app.get(`${baseUrl}/auth/google`,passport.authenticate('google',{scope:['profile','email']}));
 
-    app.get(`${baseUrl}/auth/google/redirect`,passport.authenticate('google', { failureRedirect: `http://localhost:4200/login` }),userController.googleAuth);
+    app.get(`${baseUrl}/auth/google/redirect`,passport.authenticate('google', { failureRedirect: `http://trackitdown.co.in/login` }),userController.googleAuth);
 
     app.get(`${baseUrl}/auth/facebook`,passport.authenticate('facebook',{scope:['profile']}));
     
-    app.get(`${baseUrl}/auth/facebook/redirect`,passport.authenticate('facebook', { failureRedirect: `http://localhost:4200/login` }),(req,res)=>{
-        // res.send(req.user)
+    app.get(`${baseUrl}/auth/facebook/redirect`,passport.authenticate('facebook', { failureRedirect: `http://trackitdown.co.in/login` }),(req,res)=>{
+     
         console.log("Reached Callback URI");
-        // res.redirect(`${appConfig.apiVersion}/dashboard`);
-        res.redirect(`http://localhost:4200/dashboard`);
+       
+        res.redirect(`http://trackitdown.co.in/dashboard`);
     });
     app.get(`${baseUrl}/auth/twitter`,passport.authenticate('twitter',{scope:['profile']}));
     
-    app.get(`${baseUrl}/auth/twitter/redirect`,passport.authenticate('twitter', { failureRedirect: `http://localhost:4200/login` }),(req,res)=>{
-        // res.send(req.user)
+    app.get(`${baseUrl}/auth/twitter/redirect`,passport.authenticate('twitter', { failureRedirect: `http://trackitdown.co.in/login` }),(req,res)=>{
+
         console.log("Reached Callback URI");
-        // res.redirect(`${appConfig.apiVersion}/dashboard`);
-        res.redirect(`http://localhost:4200/dashboard`);
+        res.redirect(`http://trackitdown.co.in/dashboard`);
     });
 
     app.put(`${baseUrl}/:userId/edit`, auth.isAuthorized, userController.editUser);
