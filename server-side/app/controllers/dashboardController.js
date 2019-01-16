@@ -80,7 +80,7 @@ let createIssue = (req, res) => {
                     status: req.body.status,
                     email:userDetails.email,
                     submitterFirstName: userDetails.firstName,
-                    submitterLastName: userDetails.lastName,
+                    submitterLastName : userDetails.lastName,
                     editorFirstName:null,
                     editorLastName:null,
                     created: today,
