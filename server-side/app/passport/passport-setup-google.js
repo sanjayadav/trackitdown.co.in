@@ -46,7 +46,7 @@ passport.use(new googleStrategy({
                             let newUser = new UserModel({
                                 userId: shortid.generate(),
                                 firstName: profile.name.givenName,
-                                lastName: profile.name.familyName || '',
+                                lastName: profile.name.familyName,
                                 email:  email.emails[0].value,
                                 createdOn: time.now()
                             })
