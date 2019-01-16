@@ -428,7 +428,7 @@ let googleAuth = (req,res) =>{
         res.status(200);
         console.log(apiResponse);
         // res.send(apiResponse);
-        res.redirect(`http://localhost:4200/dashboard`);
+        res.redirect(`http://trackitdown.co.in/dashboard`);
     })
     .catch((err) => {
         console.log("errorhandler");
